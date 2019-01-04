@@ -22,6 +22,11 @@ public class HomeController {
         return "home/index";
     }
 
+//    @RequestMapping(value = "login", method =RequestMethod.POST)
+//    public String login(){
+//
+//    }
+
     @RequestMapping(value= "registration", method = RequestMethod.POST)
     public String registration(User user){
         userService.saveUser(user);

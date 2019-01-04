@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 
 @Service("userService")
 public class UserService {
@@ -35,8 +33,10 @@ public class UserService {
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);
-        Role userRole = roleRepository.findByRole("ADMIN");
-//        user.setRoles((List<Role>) new HashSet<Role>(Arrays.asList(userRole)));
+        Role userRole = roleRepository.findByRole("USER");
+        List<Role> roles = new ArrayList<>();
+        roles.add(userRole);
+        user.setRoles(roles);
         userRepository.save(user);
     }
 

@@ -89,4 +89,9 @@ public class User {
     public void setRoles(List<Role> roles) {
         this.roles = roles;
     }
+
+    public void addRole(Role newRole){
+        roles.add(newRole);
+    }
+
 }
