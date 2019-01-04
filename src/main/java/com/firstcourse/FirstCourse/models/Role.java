@@ -15,7 +15,7 @@ public class Role {
 
     private String role;
 
-    @ManyToMany
+    @ManyToMany(mappedBy = "roles")
     private List<User> users;
 
 }

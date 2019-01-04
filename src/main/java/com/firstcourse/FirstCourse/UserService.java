@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 
 @Service("userService")
 public class UserService {
@@ -35,8 +36,8 @@ public class UserService {
     public void saveUser(User user) {
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         user.setActive(1);
-        Role userRole = roleRepository.findByRole("ADMIN");
-//        user.setRoles((List<Role>) new HashSet<Role>(Arrays.asList(userRole)));
+        Role userRole = roleRepository.findByRole("USER");
+        user.addRole(userRole);
         userRepository.save(user);
     }
 
