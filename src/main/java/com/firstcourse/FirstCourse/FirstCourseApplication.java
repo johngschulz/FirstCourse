@@ -1,13 +1,14 @@
 package com.firstcourse.FirstCourse;
 
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import static org.springframework.boot.SpringApplication.run;
 
 @SpringBootApplication
 public class FirstCourseApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(FirstCourseApplication.class, args);
+		run(FirstCourseApplication.class, args);
 	}
 
 }
